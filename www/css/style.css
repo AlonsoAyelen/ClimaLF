@@ -1,0 +1,99 @@
+/* Empty. Add your own CSS if you like */
+#progreso{
+	height: 100%;
+}
+.temp{
+	padding-top: 6px;
+	padding-bottom: 15em;
+}
+body { margin: 0; background-color: #180053; }
+main { width: 960px; position: relative; overflow: hidden; display: block; height: 100vh; margin: auto; font-family: verdana;}
+
+/* Modal Styles */
+.modal { width: 100%; height: 100%; }
+.modal-dialog { width: 100%; height: 100%; padding: 20px; margin: 0; }
+.modal-content { height: 50%;  overflow: hidden; overflow-y: auto;  }
+.modal-body { height: 100%; }
+.box {
+  display: block; 
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 33%;
+  height: 40vh;
+  float: left;
+  padding: 10px;
+  border: 5px solid #180053;
+   background-size: cover;
+  opacity: 1;
+  transition: width 1s, height 1s, opacity 1s;
+  -webkit-transition: width 1s, height 1s, opacity 1s;
+}
+.box > * { dsplay: block; width: 100%; }
+.box i { font-size: 0.5em; }
+.box span { position: absolute; bottom: 10px; left: 10px; text-align: left; font-size: 0.5em; }
+
+.box1 { width: 100%; height: 25%;}
+.box2 { width: 100%; height: 25%; }
+.box3 { width: 100%; height: 25%; }
+.box4 { width: 100%; left: 10; height: 25%; }
+.box5 { width: 100%; right: 10; height: 25%; }
+.box6 { width: 100%; right: 10; height: 25%; }
+
+.box * {
+  transition: opacity 2s;
+  -webkit-transition: opacity 2s;
+
+
+  z-index: 2;
+}
+.box.active::before {   opacity: 0.02;  }
+active * {
+  opacity: 1; 
+}
+.clone { position: absolute; }
+.active { position: absolute; 
+  width: 100%; 
+  height: 100%;
+
+}
+.active1 { width: 0; height: 0; opacity: 0; }
+.trigger {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #8b7fa9;
+  border: 0;
+  width: 10px;
+  height: 10px;
+  z-index: 5;
+  font-size: 25px;
+  color: #000;
+   transition: width 0.1s, height 1s, opacity 1s, font-size 1s;
+  -webkit-transition: width 0.3s, height 0.3s, opacity 0.3s, font-size 0.3s;
+}
+.trigger:hover {
+    width: 35px;
+    height: 35px;
+    opacity: 0.5;
+    font-size: 5px;
+    color: #fff;
+}
+.trigger .fa { 
+  position: absolute;
+  top: 4px;
+  left: 4px;
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.boxColor1 { background: #007ba2;}
+.boxColor2 { background: #a22700;}
+.boxColor3 { background: #007ba2;}
+.boxColor4 { background: #a22700;}
+.boxColor5 { background: #007ba2;}
+.boxColor6 { background: #a22700;}
+
+.box.active article { background: #fff; color: #000;  overflow-y: auto;}
+.box section { position: relative; }

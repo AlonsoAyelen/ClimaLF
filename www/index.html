@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html leng="es">
+	<head>
+	    <meta charset="utf-8" />
+	    <title>Estación Meteorológica Experimental</title>
+	    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	    <link href="css/bootstrap.min.css" rel="stylesheet" />
+	    <link href="css/material-fullpalette.min.css" rel="stylesheet" />
+	    <link href="css/snackbar.min.css" rel="stylesheet" />
+	    <link href="css/style.css" rel="stylesheet" />
+	    <script src="js/jquery.min.js"></script>
+	    <script src="js/moment.min.js"></script>
+	</head>
+	<body>
+	  	<section>
+		  	<div class="container" id='principal' style="color: #fff"> 
+				<center>	
+					<div class="box box2 boxColor2 btn-modal" data-toggle="modal" data-target="#fsModal">
+    					<i class="fa fa-gamepad"></i>
+	    				<div>
+		    				<h3>
+					        	Temperatura
+					        </h3>
+					        <h2 id="temperature" class="media-heading"></h2>
+				        </div>
+  					</div>
+  				</center>
+  				<center>  
+					<div class="box box3 boxColor3 btn-modal" data-toggle="modal" data-target="#fsModal">
+					    <i class="fa fa-beer"></i>
+					    <div>
+		    				<h3>
+					        	Sensaci&oacuten t&eacutermica
+					        </h3>
+					        <h2 id="wind_chill" class="media-heading"></h2>
+					    </div>    
+					</div>
+				</center>
+				<center>	
+					<div class="box box4 boxColor4 btn-modal" data-toggle="modal" data-target="#fsModal">
+					    <i class="fa fa-pinterest"></i>
+					    <div>
+		    				<h3>
+					        	Presi&oacuten atmosf&eacuterica
+					        </h3>
+					        <h2 id="bar" class="media-heading"></h2>
+					    </div>
+					</div> 
+				</center>
+				<center>	
+					<div class="box box5 boxColor5 btn-modal" data-toggle="modal" data-target="#fsModal">
+					    <i class="fa fa-heartbeat"></i>
+					    <div>
+		    				<h3>
+					        	Velocidad del viento
+					        </h3>
+					        <h2 id="wind_speed" class="media-heading"></h2>
+					    </div> 
+					</div>
+				</center>
+				<center> 
+					<div class="box box6 boxColor6 btn-modal" data-toggle="modal" data-target="#fsModal">
+					    <i class="fa fa-road"></i>
+					    <div>
+		    				<h3>
+					        	Humedad
+					        </h3>
+					        <h2 id='humidity' class="media-heading"></h2>
+					    </div>
+					</div>
+				</center>
+				<center>
+					<div class="box box1 boxColor1 btn-modal" data-toggle="modal" data-target="#fsModal">
+	   					<i class="fa fa-bolt"></i>
+		    			<div>
+			    				<h3>
+						        	Actualizaci&oacuten
+						        </h3>
+		    				<h2 id="captured_at" class="media-heading"></h2>
+	  					</div>
+	  					<input type="number" id="hayValor" style="display: none;" value="1" />
+  					</div> 
+				</center>
+				<center>	
+					<div class='conteiner'>
+						<button id="actualizar" class="btn btn-primary col-md-12" style="height:75px;color: #fff;font: bold 14px Arial;">Actualizar</button>
+					</div>
+				</center>
+			</div>	
+			<!-- muestra mensaje de no hay internet -->
+			<div class="container" id='secundario'>
+			 	<div  data-toggle="modal" data-target="#fsModal" style="height:100px;color: #fff;">
+					<div style="height:100px;background-color:#002aa2;text-align: center ;font: bold 25px Arial;padding: 0.8em" class="media-heading">
+						No hay conexi&oacuten a internet
+					</div>
+				</div>
+			 	
+
+			 	
+			 	<div class='conteiner'>
+			 		<center>
+						<button id="reintentar" class="btn btn-primary col-md-12" style="height:75px;color: #fff;font: bold 14px Arial;">Volver a Intenetarlo</button>
+					</center>
+				</div>
+			</div> 
+		</section>  
+		<script type="text/javascript" src="js/getData2.js"></script>  
+		<script type="text/javascript">
+		    function verificar(){
+		    	if($('#hayValor').val() != 0){
+			    		$('#principal').removeClass('hidden');
+				    	$('#secundario').addClass('hidden');
+				}else{
+					$('#principal').addClass('hidden');
+					$('#secundario').removeClass('hidden');
+				}
+		    }
+
+		    $('#actualizar').click(function(){
+		    	var aux= update(configuration);
+		    	setTimeout(function(){
+		  			verificar();
+		  		}, 100);
+		    });
+
+		    $('#reintentar').click(function(){
+		    	var aux= update(configuration);
+		    	setTimeout(function(){
+		  			verificar();
+		  		}, 100);
+		    });
+
+
+		    $(document).ready(function(){
+		  		update(configuration);
+		  		setTimeout(function(){
+		  			verificar();
+		  		}, 100);
+		  	});
+		  	
+		</script>
+	</body>
+</html>
+		    	
